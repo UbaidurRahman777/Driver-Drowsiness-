@@ -3,7 +3,6 @@
 > Real-time detection of driver drowsiness, yawning, and head-pose inattention
 > using MediaPipe FaceMesh and OpenCV.
 
----
 
 ## Overview
 
@@ -17,7 +16,6 @@ This system analyses a live webcam feed and raises alerts when:
 
 All three detectors use a **debounce frame counter** to suppress single-frame noise and false positives.
 
----
 
 ## Technology Stack
 
@@ -32,7 +30,6 @@ All three detectors use a **debounce frame counter** to suppress single-frame no
 > **No model files required** — MediaPipe bundles its own FaceMesh model.
 > **No `dlib`, `imutils`, or `scipy`** — all replaced by modern equivalents.
 
----
 
 ## Project Structure
 
@@ -61,7 +58,6 @@ driver_monitoring_system/
     └── test_detectors.py          # Pytest unit tests for EAR / MAR
 ```
 
----
 
 ## Installation
 
@@ -121,7 +117,6 @@ python main.py --log-level DEBUG
 
 Press **`q`** to quit. A session summary is printed to the console on exit.
 
----
 
 ## Configuration
 
@@ -139,7 +134,6 @@ Edit this file to permanently change thresholds without touching detection logic
 | `roll_threshold` | `20.0°` | Head tilt limit |
 | `cooldown_seconds` | `2.0` | Min gap between same-type audio alerts |
 
----
 
 ## Running the Tests
 
@@ -154,8 +148,6 @@ tests/test_detectors.py::TestEyeAspectRatio::test_open_eye_returns_high_ear  PAS
 tests/test_detectors.py::TestEyeAspectRatio::test_closed_eye_returns_low_ear PASSED
 ...
 ```
-
----
 
 ## How It Works
 
@@ -186,7 +178,6 @@ Six stable facial landmarks are matched against a canonical 3-D face model
 using `cv2.solvePnP` (Perspective-n-Point).  The resulting rotation vector
 is decomposed into **pitch** (nod), **yaw** (turn), and **roll** (tilt) in degrees.
 
----
 
 ## Dissertation Notes
 
@@ -200,7 +191,6 @@ pipeline (circa 2017) with a modern MediaPipe-based architecture, yielding:
 - **Modular, testable codebase** with full type annotations
 - **Debounced yawn detection** (the original had none — a known false-positive source)
 
----
 
 ## Author
 
