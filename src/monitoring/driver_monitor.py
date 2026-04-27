@@ -138,10 +138,7 @@ class DriverMonitor:
             min_detection_confidence=0.5,
             min_tracking_confidence=0.5,
         )
-
-    # ------------------------------------------------------------------
     # Main loop
-    # ------------------------------------------------------------------
 
     def run(self) -> None:
         """Start the monitoring loop. Press 'q' to quit."""
@@ -213,10 +210,7 @@ class DriverMonitor:
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 logger.info("Quit requested by user.")
                 break
-
-    # ------------------------------------------------------------------
     # Shutdown
-    # ------------------------------------------------------------------
 
     def _shutdown(self) -> None:
         self._camera.release()

@@ -15,10 +15,9 @@ import numpy as np
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
 # MediaPipe inner-lip landmark indices used for MAR
 # left=78, right=308, top=13, bottom=14
-# ---------------------------------------------------------------------------
+
 MOUTH_LEFT: int = 78
 MOUTH_RIGHT: int = 308
 MOUTH_TOP: int = 13
@@ -54,9 +53,7 @@ class MouthDetector:
         self._yawn_frames: int = 0
         self._is_yawning: bool = False
 
-    # ------------------------------------------------------------------
     # Static geometry helpers
-    # ------------------------------------------------------------------
 
     @staticmethod
     def _euclidean(a: Tuple[float, float], b: Tuple[float, float]) -> float:
@@ -85,9 +82,7 @@ class MouthDetector:
         horizontal = MouthDetector._euclidean(left, right)
         return vertical / horizontal if horizontal > 0 else 0.0
 
-    # ------------------------------------------------------------------
     # Main processing
-    # ------------------------------------------------------------------
 
     def process(
         self,

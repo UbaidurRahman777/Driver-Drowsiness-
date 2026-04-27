@@ -18,9 +18,7 @@ import numpy as np
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
 # Six stable MediaPipe FaceMesh landmark indices for PnP
-# ---------------------------------------------------------------------------
 HEAD_POSE_IDX = [
     1,    # Nose tip
     152,  # Chin
@@ -75,9 +73,7 @@ class HeadPoseDetector:
         self._distracted_frames: int = 0
         self._is_distracted: bool = False
 
-    # ------------------------------------------------------------------
     # Private helpers
-    # ------------------------------------------------------------------
 
     @staticmethod
     def _camera_matrix(frame_shape: Tuple[int, ...]) -> np.ndarray:
@@ -112,9 +108,7 @@ class HeadPoseDetector:
 
         return math.degrees(x), math.degrees(y), math.degrees(z)
 
-    # ------------------------------------------------------------------
     # Main processing
-    # ------------------------------------------------------------------
 
     def process(
         self,

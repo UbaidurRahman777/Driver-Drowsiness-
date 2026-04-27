@@ -38,10 +38,6 @@ class CameraManager:
         self._cap: Optional[cv2.VideoCapture] = None
         self._frame_count: int = 0
 
-    # ------------------------------------------------------------------
-    # Lifecycle
-    # ------------------------------------------------------------------
-
     def initialize(self) -> bool:
         """Open the camera and configure resolution / FPS."""
         logger.info("Initialising camera (source=%s)", self.source)
@@ -73,9 +69,7 @@ class CameraManager:
             self._cap.release()
             logger.info("Camera released after %d frames", self._frame_count)
 
-    # ------------------------------------------------------------------
     # Frame I/O
-    # ------------------------------------------------------------------
 
     def read_frame(self) -> Tuple[bool, Optional[np.ndarray]]:
         """
@@ -92,9 +86,7 @@ class CameraManager:
             self._frame_count += 1
         return ret, frame
 
-    # ------------------------------------------------------------------
     # Properties
-    # ------------------------------------------------------------------
 
     @property
     def frame_count(self) -> int:
@@ -105,9 +97,7 @@ class CameraManager:
     def is_open(self) -> bool:
         return self._cap is not None and self._cap.isOpened()
 
-    # ------------------------------------------------------------------
     # Context manager support
-    # ------------------------------------------------------------------
 
     def __enter__(self) -> "CameraManager":
         self.initialize()

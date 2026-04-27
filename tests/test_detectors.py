@@ -9,14 +9,8 @@ Run with:
 
 import pytest
 import numpy as np
-
 from src.detectors.eye_detector import EyeDetector
 from src.detectors.mouth_detector import MouthDetector
-
-
-# ---------------------------------------------------------------------------
-# EyeDetector — compute_ear
-# ---------------------------------------------------------------------------
 
 class TestEyeAspectRatio:
 
@@ -60,11 +54,6 @@ class TestEyeAspectRatio:
             ear = EyeDetector.compute_ear(pts)
             assert ear >= 0.0
 
-
-# ---------------------------------------------------------------------------
-# EyeDetector — drowsiness state machine
-# ---------------------------------------------------------------------------
-
 class TestEyeDetectorStateMachine:
 
     def _make_closed_landmarks(self, frame_h=100, frame_w=100):
@@ -104,11 +93,6 @@ class TestEyeDetectorStateMachine:
         det.reset()
         assert not det._is_drowsy
         assert det._closed_frames == 0
-
-
-# ---------------------------------------------------------------------------
-# MouthDetector — compute_mar
-# ---------------------------------------------------------------------------
 
 class TestMouthAspectRatio:
 

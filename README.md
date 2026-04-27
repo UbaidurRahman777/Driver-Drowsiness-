@@ -68,7 +68,7 @@ driver_monitoring_system/
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/UbaidurRahman777/Driver-Drowsiness-.git
 cd driver_monitoring_system
 ```
 
@@ -204,4 +204,7 @@ pipeline (circa 2017) with a modern MediaPipe-based architecture, yielding:
 
 ## Author
 
-*Your Name* — Dissertation Project, 2026
+*Syed Muhammad Ubaid Ur Rahman* — Dissertation Project, 2026
+`The University of Roehampton`
+`In partial fulfilment of the requirements for the degree of`
+`Master of Science in Computing`

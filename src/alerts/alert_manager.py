@@ -60,9 +60,7 @@ class AlertManager:
         if enable_audio:
             self._init_audio()
 
-    # ------------------------------------------------------------------
     # Audio initialisation
-    # ------------------------------------------------------------------
 
     def _init_audio(self) -> None:
         try:
@@ -75,9 +73,7 @@ class AlertManager:
         except Exception as exc:
             logger.warning("Audio init failed: %s", exc)
 
-    # ------------------------------------------------------------------
     # Internal beep generator
-    # ------------------------------------------------------------------
 
     def _play_beep(self, frequency: int) -> None:
         """Generate and play a pure-tone beep in a background thread."""
@@ -101,10 +97,8 @@ class AlertManager:
 
         threading.Thread(target=_beep, daemon=True).start()
 
-    # ------------------------------------------------------------------
     # Public API
-    # ------------------------------------------------------------------
-
+    
     def trigger(self, alert_type: AlertType) -> bool:
         """
         Attempt to fire an alert of the given type.

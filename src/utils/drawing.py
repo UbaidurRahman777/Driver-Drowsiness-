@@ -15,9 +15,6 @@ import numpy as np
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
-# Colour palette  (BGR)
-# ---------------------------------------------------------------------------
 CLR_GREEN = (0, 220, 100)
 CLR_RED = (0, 60, 220)
 CLR_AMBER = (0, 165, 255)
@@ -30,11 +27,6 @@ FONT = cv2.FONT_HERSHEY_DUPLEX
 FONT_SM = 0.45
 FONT_MD = 0.60
 FONT_LG = 0.80
-
-
-# ---------------------------------------------------------------------------
-# Low-level helpers
-# ---------------------------------------------------------------------------
 
 def _text_with_shadow(
     frame: np.ndarray,
@@ -59,10 +51,6 @@ def _draw_eye_hull(
     hull = cv2.convexHull(pts)
     cv2.drawContours(frame, [hull], -1, colour, 1, cv2.LINE_AA)
 
-
-# ---------------------------------------------------------------------------
-# Stats panel
-# ---------------------------------------------------------------------------
 
 def draw_stats_panel(
     frame: np.ndarray,
@@ -101,10 +89,6 @@ def draw_stats_panel(
         _text_with_shadow(frame, txt, (16, 34 + i * 32), FONT_SM, clr)
 
 
-# ---------------------------------------------------------------------------
-# Alert banners
-# ---------------------------------------------------------------------------
-
 def draw_alert_banners(
     frame: np.ndarray,
     eye_result: Dict[str, Any],
@@ -133,10 +117,6 @@ def draw_alert_banners(
         _text_with_shadow(frame, msg, ((w - tw) // 2, y_pos), FONT_LG, clr, 2)
 
 
-# ---------------------------------------------------------------------------
-# Landmark overlays
-# ---------------------------------------------------------------------------
-
 def draw_eye_landmarks(
     frame: np.ndarray,
     eye_result: Dict[str, Any],
@@ -159,7 +139,6 @@ def draw_mouth_landmarks(
     if hull_coords:
         _draw_eye_hull(frame, hull_coords, colour)
 
-
 def draw_head_pose_axis(
     frame: np.ndarray,
     pose_result: Dict[str, Any],
@@ -179,11 +158,6 @@ def draw_head_pose_axis(
 
     colour = CLR_RED if pose_result.get("is_distracted") else CLR_CYAN
     cv2.arrowedLine(frame, p1, p2, colour, 2, cv2.LINE_AA, tipLength=0.3)
-
-
-# ---------------------------------------------------------------------------
-# Face-count badge
-# ---------------------------------------------------------------------------
 
 def draw_face_count(frame: np.ndarray, count: int) -> None:
     """Small badge showing how many faces are detected."""

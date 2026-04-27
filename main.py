@@ -21,14 +21,8 @@ import logging
 import logging.handlers
 import sys
 from pathlib import Path
-
 from config.settings import AppConfig, CameraConfig, AlertConfig
 from src.monitoring.driver_monitor import DriverMonitor
-
-
-# ---------------------------------------------------------------------------
-# Logging setup
-# ---------------------------------------------------------------------------
 
 def _configure_logging(log_dir: str, level: str, to_file: bool) -> None:
     log_level = getattr(logging, level.upper(), logging.INFO)
@@ -50,11 +44,6 @@ def _configure_logging(log_dir: str, level: str, to_file: bool) -> None:
         datefmt="%Y-%m-%d %H:%M:%S",
         handlers=handlers,
     )
-
-
-# ---------------------------------------------------------------------------
-# CLI
-# ---------------------------------------------------------------------------
 
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -94,11 +83,6 @@ def _parse_args() -> argparse.Namespace:
         help="Logging verbosity (default: INFO)",
     )
     return parser.parse_args()
-
-
-# ---------------------------------------------------------------------------
-# Entry point
-# ---------------------------------------------------------------------------
 
 def main() -> None:
     args = _parse_args()

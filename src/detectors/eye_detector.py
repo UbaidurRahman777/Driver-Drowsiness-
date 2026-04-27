@@ -16,11 +16,9 @@ import numpy as np
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
 # MediaPipe FaceMesh landmark indices — eyes
 # Each list follows the EAR convention: [p1, p2, p3, p4, p5, p6]
 # where p1/p4 are the horizontal corners and p2,p3,p5,p6 are vertical pairs.
-# ---------------------------------------------------------------------------
 LEFT_EYE_IDX: List[int] = [362, 385, 387, 263, 373, 380]
 RIGHT_EYE_IDX: List[int] = [33, 160, 158, 133, 153, 144]
 
@@ -49,9 +47,7 @@ class EyeDetector:
         self._closed_frames: int = 0
         self._is_drowsy: bool = False
 
-    # ------------------------------------------------------------------
     # Static geometry helpers
-    # ------------------------------------------------------------------
 
     @staticmethod
     def _euclidean(a: Tuple[float, float], b: Tuple[float, float]) -> float:
@@ -73,9 +69,7 @@ class EyeDetector:
         C = EyeDetector._euclidean(coords[0], coords[3])
         return (A + B) / (2.0 * C) if C > 0 else 0.0
 
-    # ------------------------------------------------------------------
     # Main processing
-    # ------------------------------------------------------------------
 
     def process(
         self,
