@@ -206,5 +206,7 @@ pipeline (circa 2017) with a modern MediaPipe-based architecture, yielding:
 
 *Syed Muhammad Ubaid Ur Rahman* — Dissertation Project, 2026
 `The University of Roehampton`
+
 `In partial fulfilment of the requirements for the degree of`
+
 `Master of Science in Computing`
