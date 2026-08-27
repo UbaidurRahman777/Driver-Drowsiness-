@@ -7,7 +7,7 @@
 ![MediaPipe](https://img.shields.io/badge/MediaPipe-0.10.14-orange)
 ![Tests](https://img.shields.io/badge/tests-pytest-brightgreen)
 
-![Demo](demo.png)
+![Demo](docs/demo.png)
 
 ---
 
