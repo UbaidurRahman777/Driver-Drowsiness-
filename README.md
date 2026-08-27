@@ -7,8 +7,7 @@
 ![MediaPipe](https://img.shields.io/badge/MediaPipe-0.10.14-orange)
 ![Tests](https://img.shields.io/badge/tests-pytest-brightgreen)
 
-<!-- TODO: replace with your own recording -->
-![Demo](docs/demo.gif)
+![Demo](demo.png)
 
 ---
 
